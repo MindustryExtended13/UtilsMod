@@ -1,11 +1,12 @@
 {
-  "displayName": "Java Mod Template",
-  "name": "example-java-mod",
-  "author": "You",
-  "main": "example.ExampleJavaMod",
-  "description": "A Mindustry Java mod template.",
+  "displayName": "ME13 Utils",
+  "name": "me13u",
+  "author": "TheEE145",
+  "main": "me13u.UtilsMod",
+  "description": "A Mindustry Java mod that add utils and information.",
   "version": 1.0,
   "minGameVersion": 140,
   "java": true,
-  "repo": "User/RepoName"
+  "hidden": true,
+  "repo": "MindustryExtended13/UtilsMod"
 }

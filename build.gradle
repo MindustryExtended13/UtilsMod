@@ -24,7 +24,7 @@ ext {
             name = name.substring(1);
         }
 
-        return "com.github.MindustryExtended13.Me13Core:$name:v1.6"
+        return "com.github.MindustryExtended13.Me13Core:$name:4ec19e7559"
     }
 }
 
@@ -49,9 +49,6 @@ subprojects {
 
     sourceCompatibility = 1.8 // java 8
     targetCompatibility = 1.8
-
-    //jitpack modules publish (for example core, integration)
-    //you can remove this if need to remove
     java {
         withSourcesJar()
         withJavadocJar()
@@ -118,6 +115,7 @@ dependencies {
 
     //ME13 components
     //to implement use "implementation modCore(':module')"
+    implementation modCore(":logger")
 
     //Informatronics integration
     //implementation "com.github.MindustryExtended13.informatronics:tools:1.0"
@@ -220,13 +218,16 @@ project(":core") {
         annotationProcessor "com.github.Anuken:jabel:$jabelVersion"
         compileOnly "com.github.Anuken.Arc:arc-core:$mindustryVersion"
         compileOnly "com.github.Anuken.MindustryJitpack:core:$mindustryVersion"
+
+        implementation modCore(":logger")
+        implementation rootProject.project(":integration")
     }
 }
 
-//project(":integration") {
-//    dependencies {
-//        annotationProcessor "com.github.Anuken:jabel:$jabelVersion"
-//        compileOnly "com.github.Anuken.Arc:arc-core:$mindustryVersion"
-//        compileOnly "com.github.Anuken.MindustryJitpack:core:$mindustryVersion"
-//    }
-//}
+project(":integration") {
+    dependencies {
+        annotationProcessor "com.github.Anuken:jabel:$jabelVersion"
+        compileOnly "com.github.Anuken.Arc:arc-core:$mindustryVersion"
+        compileOnly "com.github.Anuken.MindustryJitpack:core:$mindustryVersion"
+    }
+}
